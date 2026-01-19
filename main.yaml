@@ -1,0 +1,24 @@
+---
+- name: "Converge Zeus Workstation"
+  hosts: all
+  become: true
+  gather_facts: true
+  vars_files:
+    - config.default.yaml
+  tasks:
+    - name: Ensure pacman updates
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+
+    - name: Ensure required packages installed
+      community.general.pacman:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ cachyos_packages }}"
+
+    - name: Ensure development tasks included
+      ansible.builtin.import_tasks: tasks/dev.yaml
+
+    - name: Ensure hyprland tasks included
+      ansible.builtin.import_tasks: tasks/hyprland.yaml

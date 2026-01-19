@@ -1,0 +1,21 @@
+configure_sudoers: true
+dotfiles_repo: git@github.com:kilip/dotfiles.git
+cachyos_packages:
+  - git
+  - github-cli
+  - starship
+  - htop
+  - chezmoi
+  - go-task
+  - pass
+  - neovim
+  - sops
+hyprland_packages:
+  - hyprland
+  - wofi
+  - grim
+  - slurp
+  - swaybg
+  - wl-clipboard
+  - hyprpaper
+  - waybar

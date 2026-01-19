@@ -1,0 +1,14 @@
+---
+version: 3
+
+tasks:
+  deps:
+    desc: "install required apps"
+    cmds:
+      - pip install --upgrade pip
+      - pip install -r requirements.txt
+      - ansible-galaxy collection install -r requirements.yml
+  default:
+    desc: "converge workstation"
+    cmds:
+      - ansible-playbook main.yaml

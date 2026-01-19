@@ -1,0 +1,16 @@
+---
+- name: Ensure chrome installed
+  become: true
+  become_user: toni
+  kewlfft.aur.aur:
+    name: google-chrome
+    state: present
+    use: paru
+
+- name: Ensure vscode installed
+  become: true
+  become_user: toni
+  kewlfft.aur.aur:
+    name: visual-studio-code-bin
+    state: present
+    use: paru

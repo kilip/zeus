@@ -1,0 +1,6 @@
+---
+- name: Ensure required hyprland packages installed
+  community.general.pacman:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ hyprland_packages }}"
